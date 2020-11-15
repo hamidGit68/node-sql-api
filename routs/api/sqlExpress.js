@@ -26,19 +26,19 @@ sqlParent.get("/firstEps", (req, resp, next) => {
 // ---------------------------
 /* creat a connection */
 // ---------------------------
-//const pool = mysql.createPool({
-//    connectionLimit: 10,
-//    
-//});
+const pool = mysql.createPool({
+    connectionLimit: 10,
+    host: 'localhost',
+    user: 'hamidNode',
+    pass: '',
+    database: 'usersnode'
+});
 
 function connectFunc() {
-    const connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'hamidNode',
-        pass: '',
-        database: 'usersnode'
-    });
-    return connection;
+//    const connection = mysql.createConnection({
+//        
+//    });
+    return pool;
 }
 
 
@@ -48,9 +48,9 @@ function connectFunc() {
 sqlParent.get("/user/:id", function(req, resp, next) {
    
     const connection = connectFunc();
-    
+//    console.log(connection);
     // start connection
-    connection.connect();
+//    connection.connect();
     
     const idQuery = req.params.id;
     const queryStr = "SELECT * FROM users WHERE id = ?"
@@ -63,7 +63,7 @@ sqlParent.get("/user/:id", function(req, resp, next) {
         resp.json(rows);
     });
     
-    connection.end();
+//    connection.end();
 }); // end "user/:id" request
 
 
@@ -79,7 +79,7 @@ sqlParent.post('/addMember', function(req, resp, next) {
     const connection = connectFunc();
     const queryStr = "INSERT INTO users (firstName, secondName) VALUES (?, ?)";
     
-    connection.connect();
+//    connection.connect();
     
     connection.query(queryStr, [first, second], (err, rows, fields) => {
         if (err) {
@@ -89,7 +89,7 @@ sqlParent.post('/addMember', function(req, resp, next) {
         resp.send("added successfuly");
     });
     
-    connection.end();
+//    connection.end();
 }); // end "addMember" request
 
 module.exports = sqlParent; // when using Router() its enough to export the router variable (here the 'sqlParent' variable)
