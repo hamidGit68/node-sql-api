@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home-page</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="container-all">
+        <h1>welcome to home-page.</h1>
+        <form id="formId" action="/api/postmember" method="post">
+           <div>
+            <lable for="name">
+            your name?
+            </lable>
+            <input name="fName" id="name" type="text">
+           </div>
+           <div>
+              <label for="family">
+              your family?
+              </label>
+              <input name="lName" id="family" type="text">
+           </div>
+           
+           <div>
+           <button type="submit">submit</button>
+           </div>
+            
+        </form>
+    </div>
+    
+    <script src="./jquery-3.5.1.js"></script>
+<!--
+    <script src="./request.js"></script>
+    <script src="./sendData.js"></script>
+-->
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form-page</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="container-all">
+        <h1>welcome to form-page.</h1>
+        <p>enter your name and family to add to <strong>sql</strong> server</p>
+        <form id="formId2" action="/sql/addMember" method="post">
+           <div>
+            <lable for="name2">
+            your name?
+            </lable>
+            <input name="fName2" id="name2" type="text">
+           </div>
+           <div>
+              <label for="family2">
+              your family?
+              </label>
+              <input name="lName2" id="family2" type="text">
+           </div>
+           
+           <div>
+           <button type="submit">submit</button>
+           </div>
+            
+        </form>
+    </div>
+    
+    <script src="./jquery-3.5.1.js"></script>
+<!--
+    <script src="./request.js"></script>
+    <script src="./sendData.js"></script>
+-->
+</body>
+</html>
